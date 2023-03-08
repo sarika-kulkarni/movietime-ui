@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from "./app/routes/root";
 import ErrorPage from './app/error';
 import Movies from './app/routes/movies';
+import Registration from './app/routes/registration';
+import Theaters from './app/routes/theaters';
 
 const router = createBrowserRouter([
   {
@@ -16,11 +18,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/theaters",
-        element: <div> Yet to build theater component</div>
+        element: <Theaters />
       },
       {
         path: "/register",
-        element: <div> Yet to build registration component</div>
+        element: <Registration />
       }
     ]
   }
