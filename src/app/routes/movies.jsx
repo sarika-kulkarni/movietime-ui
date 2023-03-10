@@ -1,5 +1,6 @@
 import { useGetRunningMoviesQuery } from "../services/moviesApi"
 import Movie from "../components/movie";
+import '../../App.css'
 
 export default function Movies (){
     const { data, error, isLoading } = useGetRunningMoviesQuery();

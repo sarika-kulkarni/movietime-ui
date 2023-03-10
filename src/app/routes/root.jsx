@@ -1,6 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+import { setUserZip } from "../reducers/selection";
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function Root(){
+
+    const userZip = useSelector((state) => state.selection.userZip) || '';
+    const dispatch = useDispatch();
+
+    const updateUserZip = (e) => {
+        const setUserZipAction = setUserZip({ zip: e.target.value});
+        dispatch(setUserZipAction);
+    }
+
     return (
         <>
             <header>
@@ -9,9 +20,9 @@ export default function Root(){
             </header>
             <nav>
                 <ul>
-                    <li>Movies</li>
-                    <li>Theaters</li>
-                    <li>Zip <input name="zip"/></li>
+                    <li><Link to="/movies">Movies</Link></li>
+                    <li><Link to="/theaters">Theaters</Link></li>
+                    <li>Zip <input type="text" name="zip" value={userZip} onChange={updateUserZip}/></li>
                 </ul>
             </nav>
             <div name="content">

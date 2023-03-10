@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const moviesApi = createApi({
-  reducerPath: 'movieApi',
+  reducerPath: 'movies',
   baseQuery: fetchBaseQuery({ 
     baseUrl: 'http://localhost:3000/api/',
     mode: 'no-cors',
@@ -13,7 +13,10 @@ export const moviesApi = createApi({
     getRunningMovies: builder.query({
       query: () => 'movies?running=true',
     }),
+    getTheatersRunningMovie: builder.query({
+      query: (movieId) => `movies/${movieId}/movieShows`,
+    }),
   }),
 });
 
-export const { useGetRunningMoviesQuery } =  moviesApi;
+export const { useGetTheatersRunningMovieQuery, useGetRunningMoviesQuery } =  moviesApi;

@@ -5,6 +5,8 @@ import ErrorPage from './app/error';
 import Movies from './app/routes/movies';
 import Registration from './app/routes/registration';
 import Theaters from './app/routes/theaters';
+import MovieDetails from './app/routes/movieDetails';
+import Booking from './app/routes/booking';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration />
+      },
+      {
+        path: "/movieDetails",
+        element: <MovieDetails />
+      },
+      {
+        path: "/booking",
+        element: <Booking />
       }
     ]
   }

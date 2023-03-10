@@ -46,3 +46,22 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #3e8e41;
 }
+
+.movies-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  clear: both;
+  background-color: gray;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.movie {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  margin: 20px;
+  text-align: center;
+  border-radius: 10px;
+}

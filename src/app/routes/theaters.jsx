@@ -1,8 +1,10 @@
 import { useGetTheatersQuery } from "../services/theatersApi";
 import Theater from "../components/theater";
+import { useSelector } from 'react-redux';
 
 export default function Theaters(){
-    const { data, error, isLoading } = useGetTheatersQuery();
+    const userZip = useSelector((state) => state.selection.userZip);
+    const { data, error, isLoading } = useGetTheatersQuery(userZip);
 
     if(isLoading){
         return (
