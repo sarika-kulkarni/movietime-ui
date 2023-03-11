@@ -65,3 +65,11 @@ input[type="submit"]:hover {
   text-align: center;
   border-radius: 10px;
 }
+
+.available { 
+  color: green;
+}
+
+.booked {
+  color: red;
+}
