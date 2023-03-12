@@ -11,7 +11,7 @@ export default function MovieShow(props){
     const onSelectMovieShow = () => {
         const selectMovieShowAction = selectMovieShow({movieShow: props.show, theater: props.theater});
         dispatch(selectMovieShowAction);
-        navigate('/booking');
+        navigate('/movietime/booking');
     }
 
     return (

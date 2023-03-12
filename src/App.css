@@ -73,3 +73,11 @@ input[type="submit"]:hover {
 .booked {
   color: red;
 }
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}

@@ -1,8 +1,10 @@
 import { useGetTheatersRunningMovieQuery } from "../services/moviesApi"
+import { useNavigate } from "react-router-dom";
 import MovieShow from "./movieShow";
 
 export default function MovieShows(props){
 
+    const navigate = useNavigate();
     const { data, error, isLoading } = useGetTheatersRunningMovieQuery(props.movieId);
 
     if(isLoading){
@@ -12,6 +14,10 @@ export default function MovieShows(props){
     }
 
     if(error){
+        if(error.status === 401){
+            navigate('/movietime/login');
+        }
+
         return (
             <div>Sorry, unable to load movie shows!</div>
         )
@@ -20,7 +26,7 @@ export default function MovieShows(props){
     return(
         <>
             { data.map((showDetails) => (
-            <div className="movie-shows">
+            <div key={showDetails.theater.theaterId} className="movie-shows">
                 <p>{showDetails.theater.theaterName}</p>
                 <div className="shows">
                 { showDetails.movieShows.map((show) => (

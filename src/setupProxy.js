@@ -1,6 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
+  console.log('setting up proxy');
   app.use(
     '/api',
     createProxyMiddleware({
@@ -15,8 +16,8 @@ module.exports = function(app) {
       }
     })
   );
-  app.onProxyReq((proxyReq, req, res) => {
-    console.log('setting header before proxying request');
-    proxyReq.setHeader('Content-Type', 'application/json');
-  });
+  // app.onProxyReq((proxyReq, req, res) => {
+  //   console.log('setting header before proxying request');
+  //   proxyReq.setHeader('Content-Type', 'application/json');
+  // });
 };

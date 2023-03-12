@@ -1,9 +1,11 @@
 import { useGetAvailabilityQuery } from '../services/movieShowApi';
+import { useNavigate } from "react-router-dom";
 
 const rowIds = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 
 export default function SeatMap(props){
 
+    const navigate = useNavigate();
     const movieShowId = props.movieShowId;
     const showDate = props.showDate || '2023-03-15';
 
@@ -16,6 +18,10 @@ export default function SeatMap(props){
     }
 
     if(error){
+        if(error.status === 401){
+            navigate('/movietime/login');
+        }
+
         return (
             <div>Sorry, unable to load show availability!</div>
         )
@@ -45,7 +51,7 @@ export default function SeatMap(props){
         for (let i = 1; i <= numberOfSeatsPerRow; i++) {
             let booked = isSeatBooked(rowId, i, bookedSeats);
             columns.push(
-            <td>
+            <td key={`${rowId}${i}`}>
                 <div className={`seat ${booked ? 'booked' : 'available'}`}>
                     <input type="checkbox" value={`${rowId}:${i}`} disabled={booked} onClick={selectSeat}/>
                 </div>
@@ -59,7 +65,7 @@ export default function SeatMap(props){
     const seatMapRows = (numberOfRows, numberOfSeatsPerRow) => {
         let rows = [];
         for (let i = 0; i < numberOfRows; i++) {
-            rows.push(<tr>{seatMapColumns(rowIds[i], numberOfSeatsPerRow)}</tr>);            
+            rows.push(<tr key={rowIds[i]}>{seatMapColumns(rowIds[i], numberOfSeatsPerRow)}</tr>);            
         }
 
         return rows;

@@ -12,7 +12,7 @@ export default function MovieDetails() {
                 <p><span>Genre:</span><span>{movieDetails.genre}</span></p>
                 <p><span>Duration:</span><span>{movieDetails.duration} minutes</span></p>
             </div>
-            <MovieShows movieId={movieDetails.movieId} />
+            <MovieShows key={movieDetails.movieId} movieId={movieDetails.movieId} />
         </>
     )
 }

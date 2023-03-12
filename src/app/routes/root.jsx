@@ -20,8 +20,8 @@ export default function Root(){
             </header>
             <nav>
                 <ul>
-                    <li><Link to="/movies">Movies</Link></li>
-                    <li><Link to="/theaters">Theaters</Link></li>
+                    <li><Link to="/movietime/movies">Movies</Link></li>
+                    <li><Link to="/movietime/theaters">Theaters</Link></li>
                     <li>Zip <input type="text" name="zip" value={userZip} onChange={updateUserZip}/></li>
                 </ul>
             </nav>

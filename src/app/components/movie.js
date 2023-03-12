@@ -11,7 +11,7 @@ export default function Movie(props){
     const onSelectMovie = () => {
         const selectMovieAction = selectMovie({movie: props.details});
         dispatch(selectMovieAction);
-        navigate('/movieDetails');
+        navigate('/movietime/movieDetails');
     }
 
     return (

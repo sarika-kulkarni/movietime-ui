@@ -7,34 +7,39 @@ import Registration from './app/routes/registration';
 import Theaters from './app/routes/theaters';
 import MovieDetails from './app/routes/movieDetails';
 import Booking from './app/routes/booking';
+import Login from './app/routes/login';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/movietime",
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/movies",
+        path: "/movietime/movies",
         element: <Movies />
       },
       {
-        path: "/theaters",
+        path: "/movietime/theaters",
         element: <Theaters />
       },
       {
-        path: "/register",
+        path: "/movietime/register",
         element: <Registration />
       },
       {
-        path: "/movieDetails",
+        path: "/movietime/movieDetails",
         element: <MovieDetails />
       },
       {
-        path: "/booking",
+        path: "/movietime/booking",
         element: <Booking />
+      },
+      {
+        path: "/movietime/login",
+        element: <Login />
       }
-    ]
+    ],
   }
 ]);
 

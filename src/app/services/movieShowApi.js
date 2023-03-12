@@ -3,10 +3,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const movieShowApi = createApi({
   reducerPath: 'movieShow',
   baseQuery: fetchBaseQuery({ 
-    baseUrl: 'http://localhost:3000/api/',
-    mode: 'no-cors',
-    headers: {
-      "Accept": "application/json"
+    baseUrl: 'http://localhost:8080/movietime/api/',
+    prepareHeaders: (headers) => {
+        headers.set("Content-Type", "application/json");
+        return headers;
     }
    }),
   endpoints: (builder) => ({
@@ -14,8 +14,15 @@ export const movieShowApi = createApi({
       query: ({movieShowId, showDate}) => { 
         return `movieShows/${movieShowId}/availability?date=${showDate}`
     },
-    })
+    }),
+    bookShow: builder.mutation({
+        query: ({movieShowId, bookingRequest}) => ({
+          url: `movieShows/${movieShowId}/bookings`,
+          method: 'POST',
+          body: bookingRequest
+        }),
+      }),
   }),
 });
 
-export const { useGetAvailabilityQuery } =  movieShowApi;
+export const { useGetAvailabilityQuery, useBookShowMutation } =  movieShowApi;
