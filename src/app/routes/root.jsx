@@ -16,12 +16,13 @@ export default function Root(){
         <>
             <header>
                 <span>MovieTime</span>
-                <span>Login</span>
+                <span><Link to="/movietime/login">Login</Link></span>
             </header>
             <nav>
                 <ul>
                     <li><Link to="/movietime/movies">Movies</Link></li>
                     <li><Link to="/movietime/theaters">Theaters</Link></li>
+                    <li><Link to="/movietime/mybookings">My bookings</Link></li>
                     <li>Zip <input type="text" name="zip" value={userZip} onChange={updateUserZip}/></li>
                 </ul>
             </nav>

@@ -16,6 +16,13 @@ module.exports = function(app) {
       }
     })
   );
+  app.use(
+    '/movietime/perform_login',
+    createProxyMiddleware({
+      target: 'http://localhost:8080',
+      changeOrigin: false
+    })
+  );
   // app.onProxyReq((proxyReq, req, res) => {
   //   console.log('setting header before proxying request');
   //   proxyReq.setHeader('Content-Type', 'application/json');

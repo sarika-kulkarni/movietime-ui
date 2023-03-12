@@ -9,11 +9,13 @@ export const movieShowApi = createApi({
         return headers;
     }
    }),
+  tagTypes: ['SeatMap'],
   endpoints: (builder) => ({
     getAvailability: builder.query({
       query: ({movieShowId, showDate}) => { 
         return `movieShows/${movieShowId}/availability?date=${showDate}`
     },
+    providesTags: ['SeatMap']
     }),
     bookShow: builder.mutation({
         query: ({movieShowId, bookingRequest}) => ({
@@ -21,6 +23,7 @@ export const movieShowApi = createApi({
           method: 'POST',
           body: bookingRequest
         }),
+        invalidatesTags: ['SeatMap']
       }),
   }),
 });

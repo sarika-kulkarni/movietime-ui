@@ -4,6 +4,7 @@ import { registrationApi } from '../services/registrationApi';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { theatersApi } from '../services/theatersApi';
 import { movieShowApi } from '../services/movieShowApi';
+import { myBookingsApi } from '../services/myBookingsApi';
 import selectionReducer from '../reducers/selection';
 
 export const store = configureStore({
@@ -12,10 +13,17 @@ export const store = configureStore({
         [movieShowApi.reducerPath]: movieShowApi.reducer,
         [theatersApi.reducerPath]: theatersApi.reducer,
         [registrationApi.reducerPath]: registrationApi.reducer,
+        [myBookingsApi.reducerPath]: myBookingsApi.reducer,
         selection: selectionReducer 
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(moviesApi.middleware, movieShowApi.middleware, registrationApi.middleware, theatersApi.middleware);
+        return getDefaultMiddleware().concat(
+            moviesApi.middleware,
+            movieShowApi.middleware,
+            registrationApi.middleware,
+            theatersApi.middleware,
+            myBookingsApi.middleware
+        );
     },
 });
 

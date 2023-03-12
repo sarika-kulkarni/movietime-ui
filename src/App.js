@@ -6,8 +6,9 @@ import Movies from './app/routes/movies';
 import Registration from './app/routes/registration';
 import Theaters from './app/routes/theaters';
 import MovieDetails from './app/routes/movieDetails';
-import Booking from './app/routes/booking';
 import Login from './app/routes/login';
+import MyBookings from './app/routes/mybookings';
+import BookShow from './app/routes/bookShow';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/movietime/booking",
-        element: <Booking />
+        element: <BookShow />
+      },
+      {
+        path: "/movietime/mybookings",
+        element: <MyBookings />
       },
       {
         path: "/movietime/login",
