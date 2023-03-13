@@ -9,6 +9,7 @@ import MovieDetails from './app/routes/movieDetails';
 import Login from './app/routes/login';
 import MyBookings from './app/routes/mybookings';
 import BookShow from './app/routes/bookShow';
+import MyProfile from './app/routes/myProfile';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/movietime/login",
         element: <Login />
+      },
+      {
+        path: "/movietime/myprofile",
+        element: <MyProfile />
       }
     ],
   }

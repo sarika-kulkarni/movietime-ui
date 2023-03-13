@@ -23,6 +23,7 @@ export default function Root(){
                     <li><Link to="/movietime/movies">Movies</Link></li>
                     <li><Link to="/movietime/theaters">Theaters</Link></li>
                     <li><Link to="/movietime/mybookings">My bookings</Link></li>
+                    <span><Link to="/movietime/myprofile">My profile</Link></span>
                     <li>Zip <input type="text" name="zip" value={userZip} onChange={updateUserZip}/></li>
                 </ul>
             </nav>

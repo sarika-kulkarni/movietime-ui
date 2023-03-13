@@ -5,6 +5,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { theatersApi } from '../services/theatersApi';
 import { movieShowApi } from '../services/movieShowApi';
 import { myBookingsApi } from '../services/myBookingsApi';
+import { profileApi } from '../services/profileApi';
 import selectionReducer from '../reducers/selection';
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
         [theatersApi.reducerPath]: theatersApi.reducer,
         [registrationApi.reducerPath]: registrationApi.reducer,
         [myBookingsApi.reducerPath]: myBookingsApi.reducer,
+        [profileApi.reducerPath]: profileApi.reducer,
         selection: selectionReducer 
     },
     middleware: (getDefaultMiddleware) => {
@@ -22,7 +24,8 @@ export const store = configureStore({
             movieShowApi.middleware,
             registrationApi.middleware,
             theatersApi.middleware,
-            myBookingsApi.middleware
+            myBookingsApi.middleware,
+            profileApi.middleware
         );
     },
 });
