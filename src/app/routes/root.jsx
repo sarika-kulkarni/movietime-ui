@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 export default function Root(){
 
     const userZip = useSelector((state) => state.selection.userZip) || '';
+    const authenticated = useSelector((state) => state.selection.authenticated);
     const dispatch = useDispatch();
 
     const updateUserZip = (e) => {
@@ -16,7 +17,8 @@ export default function Root(){
         <>
             <header>
                 <span>MovieTime</span>
-                <span><Link to="/movietime/login">Login</Link></span>
+                { authenticated ? <span><Link to="/movietime/logout">Logout</Link></span> :
+                <span><Link to="/movietime/login">Login</Link></span>}
             </header>
             <nav>
                 <ul>

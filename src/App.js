@@ -10,6 +10,7 @@ import Login from './app/routes/login';
 import MyBookings from './app/routes/mybookings';
 import BookShow from './app/routes/bookShow';
 import MyProfile from './app/routes/myProfile';
+import Logout from './app/routes/logout';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/movietime/login",
         element: <Login />
+      },
+      {
+        path: "/movietime/logout",
+        element: <Logout />
       },
       {
         path: "/movietime/myprofile",

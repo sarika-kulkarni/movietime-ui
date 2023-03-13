@@ -6,6 +6,7 @@ import { theatersApi } from '../services/theatersApi';
 import { movieShowApi } from '../services/movieShowApi';
 import { myBookingsApi } from '../services/myBookingsApi';
 import { profileApi } from '../services/profileApi';
+import { loginApi } from '../services/loginApi';
 import selectionReducer from '../reducers/selection';
 
 export const store = configureStore({
@@ -16,6 +17,7 @@ export const store = configureStore({
         [registrationApi.reducerPath]: registrationApi.reducer,
         [myBookingsApi.reducerPath]: myBookingsApi.reducer,
         [profileApi.reducerPath]: profileApi.reducer,
+        [loginApi.reducerPath]: loginApi.reducer,
         selection: selectionReducer 
     },
     middleware: (getDefaultMiddleware) => {
@@ -25,7 +27,8 @@ export const store = configureStore({
             registrationApi.middleware,
             theatersApi.middleware,
             myBookingsApi.middleware,
-            profileApi.middleware
+            profileApi.middleware,
+            loginApi.middleware
         );
     },
 });
