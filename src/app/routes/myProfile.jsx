@@ -14,6 +14,10 @@ export default function MyProfile(){
         setUpdating(false)
     }
 
+    const cancelUpdate = () => {
+        setUpdating(false)
+    }
+
     const {data, isLoading, isError, error} = useGetMyProfileQuery();
 
     const [updating, setUpdating] = useState(false);
@@ -45,7 +49,7 @@ export default function MyProfile(){
                 <p>First name: <input type="text" value={firstName} onChange={(e) => {e.preventDefault(); setFirstName(e.target.value);}}/></p>
                 <p>Last name: <input type="text" value={lastName} onChange={(e) => {e.preventDefault(); setLastName(e.target.value)}}/></p>
                 <p>Phone: <input type="text" value={phone} onChange={(e) => {e.preventDefault(); setPhone(e.target.value)}}/></p>
-                <p><input type="submit" value="Save" /></p>
+                <p><input type="submit" value="Save" /> <button name="cancel" onClick={cancelUpdate}>Cancel</button></p>
             </form>
         )
     }else{

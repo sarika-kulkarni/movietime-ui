@@ -18,6 +18,6 @@ export default function Logout(){
     }
 
     return (
-        <div>You are logged out. Click <Link>here</Link> to login again.</div>
+        <div>You are logged out. Click <Link to="/movietime/login">here</Link> to login again.</div>
     )
 }

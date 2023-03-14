@@ -58,7 +58,7 @@ export default function Registration(){
                 <p>Confirm password</p>
                 <input className="form-input" type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
             </label>
-            <input type="submit" name="Register" value="Register" />
+            <input className="form-input-register" type="submit" name="Register" value="Register" />
         </form>
         </div>
       

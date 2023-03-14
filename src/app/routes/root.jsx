@@ -16,23 +16,23 @@ export default function Root(){
     return (
         <>
             <header>
-                <span>MovieTime</span>
-                { authenticated ? <span><Link to="/movietime/logout">Logout</Link></span> :
-                <span><Link to="/movietime/login">Login</Link></span>}
+                <span className="app-logo align-top">MovieTime</span>
+                { authenticated ? <span className="header-links"><Link to="/movietime/logout">Logout</Link></span> :
+                <span className="header-links align-top"><Link to="/movietime/login">Login</Link></span>}
             </header>
             <nav>
                 <ul>
                     <li><Link to="/movietime/movies">Movies</Link></li>
                     <li><Link to="/movietime/theaters">Theaters</Link></li>
                     <li><Link to="/movietime/mybookings">My bookings</Link></li>
-                    <span><Link to="/movietime/myprofile">My profile</Link></span>
-                    <li>Zip <input type="text" name="zip" value={userZip} onChange={updateUserZip}/></li>
+                    <li><Link to="/movietime/myprofile">My profile</Link></li>
+                    <li className="nav-zip">Zip: <input type="text" size="9" name="zip" value={userZip} onChange={updateUserZip}/></li>
                 </ul>
             </nav>
-            <div name="content">
+            <div name="content" className="content container">
                 <Outlet />
             </div>
-            <footer>&copy;MovieTime.com 2023</footer>
+            <footer className="fixed-bottom">&copy;MovieTime.com 2023</footer>
         </>
     );
 }

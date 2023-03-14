@@ -1,9 +1,9 @@
 
-*{
+/**{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+}*/
 h2{
   font-size: large;
   text-align: center;
@@ -80,4 +80,64 @@ input[type="submit"]:hover {
 
 .error-message {
   color: red;
+}
+
+nav {
+  background-color: purple;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  background-color: pink;
+  margin: 8px;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+header {
+  margin: auto;
+  background-color: cornflowerblue;
+  padding: 20px;
+}
+
+.header-links {
+  float: right;
+  background-color: greenyellow;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
+.nav-zip {
+  float: right;
+}
+
+.content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+footer { 
+  text-align: center;
+  height: 50px;
+  background-color: cornflowerblue;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.booked-seats {
+  background-color: greenyellow;
+  border-radius: 15px;
+  padding: 0 10px;
+  margin: 0 5px;
 }
