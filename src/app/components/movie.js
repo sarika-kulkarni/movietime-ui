@@ -8,6 +8,11 @@ export default function Movie(props){
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const moviePosterUrl = `img/movie_${props.details.movieId}.jpg`
+    const moviePosterStyle = {
+        backgroundImage: `url(${moviePosterUrl})`
+    } 
+
     const onSelectMovie = () => {
         const selectMovieAction = selectMovie({movie: props.details});
         dispatch(selectMovieAction);
@@ -16,6 +21,7 @@ export default function Movie(props){
 
     return (
         <div className="movie" onClick={onSelectMovie}>
+            <div className="movie-poster" style={moviePosterStyle}></div>
             <p>{props.details.title}</p>
         </div>
     )

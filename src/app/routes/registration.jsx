@@ -9,11 +9,19 @@ export default function Registration(){
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [validationError, setValidationError] = useState('')
 
-    const [registerUser] = useRegisterUserMutation();
+    const [registerUser, {isSuccess}] = useRegisterUserMutation();
 
     function processRegistration(e){
         e.preventDefault();
+
+        if(password !== confirmPassword){
+            setValidationError("Passwords do not match.")
+            return;
+        }else{
+            setValidationError("")
+        }
 
         const registrationRequest = {
             email: email,
@@ -31,36 +39,38 @@ export default function Registration(){
 
     return (
        <div>
-        
-        <form className="registration-form" onSubmit={processRegistration} >
+        <form onSubmit={processRegistration} >
             <h2>Registration Form</h2>
-            <label >
-                <p>Email</p>
-                <input className="form-input" type="email" onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <label>
-                <p>First name</p>
-                <input className="form-input" onChange={(e) => setFirstName(e.target.value)} />
-            </label>
-            <label>
-                <p>Last name</p>
-                <input className="form-input" onChange={(e) => setLastName(e.target.value)} />
-            </label>
-            <label>
-                <p>Phone</p>
-                <input className="form-input" onChange={(e) => setPhone(e.target.value)} />
-            </label>
-            <label>
-                <p>Password</p>
-                <input className="form-input" type="password" onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <label>
-                <p>Confirm password</p>
-                <input className="form-input" type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
-            </label>
-            <input className="form-input-register" type="submit" name="Register" value="Register" />
+            <div className="form-group">
+                { validationError && <p class="validation-error font-weight-bold">{validationError}</p>}
+                { isSuccess && <p class="success-message font-weight-bold">Registration is successful</p>}
+            </div>
+            <div className="form-group" >
+                <label>Email</label>
+                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" className="form-input" type="email" onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>First name</label>
+                <input required className="form-input" onChange={(e) => setFirstName(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>Last name</label>
+                <input required className="form-input" onChange={(e) => setLastName(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>Phone</label>
+                <input required className="form-input" onChange={(e) => setPhone(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>Password</label>
+                <input required className="form-input" type="password" onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>Confirm password</label>
+                <input required className="form-input" type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
+            </div>
+            <button type="submit" className="btn btn-primary mb-2">Register</button>
         </form>
         </div>
-      
     )
 }

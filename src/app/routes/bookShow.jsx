@@ -53,17 +53,36 @@ export default function Booking(){
     }
 
     return (
-        <form onSubmit={onBookShow}>
+        <>
             <p className={isSuccess ? 'success-message' : 'failure-message'}>
                 {isSuccess && `Your booking is confirmed. Booking reference number: ${data.bookingId}`}
                 {isError && 'Sorry, unable to book your show now'}
             </p>
-            <p>Select show date: <input type="date" onChange={onSelectShowDate}/></p>
-            <p>Number of adult tickets: <input type="number" onChange={(e) => setAdultTickets(e.target.value)} /></p>
-            <p>Number of child tickets: <input type="number" onChange={(e) => setChildTickets(e.target.value)} /></p>
-            <p>Select seats:</p>
-            <SeatMap showDate={selectedShowDate} movieShowId={movieShow.movieShowId} onSeatSelect={updateRequestedSeats}/>
-            <p><input type="submit" value="Book show" /></p>
-        </form>
+            <form onSubmit={onBookShow}>
+                <div className="form-group">
+                    <p className={isSuccess ? 'success-message' : 'failure-message'}>
+                    {isSuccess && `Your booking is confirmed. Booking reference number: ${data.bookingId}`}
+                    {isError && 'Sorry, unable to book your show now'}
+                    </p>
+                </div>
+                <div className="form-group">
+                    <label>Show date:</label>
+                    <input className="form-control" type="date" onChange={onSelectShowDate}/>
+                </div>
+                <div className="form-group">
+                    <label>Number of adult tickets:</label>
+                    <input className="form-control" min="1" type="number" onChange={(e) => setAdultTickets(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label>Number of child tickets:</label>
+                    <input className="form-control" min="1" type="number" onChange={(e) => setChildTickets(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label>Select seats:</label>
+                    <SeatMap showDate={selectedShowDate} movieShowId={movieShow.movieShowId} onSeatSelect={updateRequestedSeats}/>
+                </div>
+                <button type="submit" className="btn btn-primary mb-2">Book show</button>
+            </form>
+        </>
     )
 }

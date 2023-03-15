@@ -26,12 +26,20 @@ export default function MovieShows(props){
     return(
         <>
             { data.map((showDetails) => (
-            <div key={showDetails.theater.theaterId} className="movie-shows">
-                <p>{showDetails.theater.theaterName}</p>
-                <div className="shows">
-                { showDetails.movieShows.map((show) => (
-                    <MovieShow key={show.movieShowId} show={show} theater={showDetails.theater}/>                                   
-                ))}
+            <div key={showDetails.theater.theaterId} className="container m-3">
+                <div className="row justify-content-center">
+                    <div className="col-4">{showDetails.theater.theaterName}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-4">Zip: {showDetails.theater.zip}</div>
+                </div>
+
+                <div className="row justify-content-center">
+                    <div className="col-4">
+                        { showDetails.movieShows.map((show) => (
+                            <MovieShow key={show.movieShowId} show={show} theater={showDetails.theater}/>                                   
+                        ))}
+                    </div>
                 </div>
             </div>
             ))}

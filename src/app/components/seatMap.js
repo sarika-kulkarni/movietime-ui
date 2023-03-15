@@ -53,7 +53,8 @@ export default function SeatMap(props){
             columns.push(
             <td key={`${rowId}${i}`}>
                 <div className={`seat ${booked ? 'booked' : 'available'}`}>
-                    <input type="checkbox" value={`${rowId}:${i}`} disabled={booked} onClick={selectSeat}/>
+                    <p><input type="checkbox" value={`${rowId}:${i}`} disabled={booked} onClick={selectSeat}/></p>
+                    <p>{`${rowId}${i}`}</p>
                 </div>
             </td>
             );            
@@ -73,7 +74,7 @@ export default function SeatMap(props){
 
     return (
         <>
-            <table>
+            <table className="seat-map">
                 <tbody>{seatMapRows(numberOfRows, numberOfSeatsPerRow)}</tbody>
             </table>
         </>

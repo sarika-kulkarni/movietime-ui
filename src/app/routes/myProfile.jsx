@@ -46,19 +46,44 @@ export default function MyProfile(){
     if(updating){
         return(
             <form onSubmit={updateMyProfile}>
-                <p>First name: <input type="text" value={firstName} onChange={(e) => {e.preventDefault(); setFirstName(e.target.value);}}/></p>
-                <p>Last name: <input type="text" value={lastName} onChange={(e) => {e.preventDefault(); setLastName(e.target.value)}}/></p>
-                <p>Phone: <input type="text" value={phone} onChange={(e) => {e.preventDefault(); setPhone(e.target.value)}}/></p>
-                <p><input type="submit" value="Save" /> <button name="cancel" onClick={cancelUpdate}>Cancel</button></p>
+                <div className="form-group">
+                    <label>First name</label>
+                    <input required type="text" value={firstName} className="form-control"
+                    onChange={(e) => {e.preventDefault(); setFirstName(e.target.value);}}/>
+                </div>
+                <div className="form-group">
+                    <label>Last name</label>
+                    <input required type="text" value={lastName} className="form-control"
+                    onChange={(e) => {e.preventDefault(); setLastName(e.target.value);}}/>
+                </div>
+                <div className="form-group">
+                    <label>Phone</label>
+                    <input required type="text" value={phone} className="form-control"
+                    onChange={(e) => {e.preventDefault(); setPhone(e.target.value);}}/>
+                </div>
+                <p><button type="submit" className="btn btn-primary mb-2">Save</button> <button className="btn btn-secondary mb-2" name="cancel" onClick={cancelUpdate}>Cancel</button></p>
             </form>
         )
     }else{
         return(
-            <div>
-                <p>First name: {data.firstName}</p>
-                <p>Last name: {data.lastName}</p>
-                <p>Phone: {data.phone}</p>
-                <p><button onClick={() => {setUpdating(true)}}>Update my profile</button></p>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-2 font-weight-bold">First name:</div>
+                    <div className="col-2">{data.firstName}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-2 font-weight-bold">Last name:</div>
+                    <div className="col-2">{data.lastName}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-2 font-weight-bold">Phone:</div>
+                    <div className="col-2">{data.phone}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-4">
+                        <button className="btn btn-primary mb-2" onClick={() => {setUpdating(true)}}>Update my profile</button>
+                    </div>
+                </div>
             </div>
         )
     }

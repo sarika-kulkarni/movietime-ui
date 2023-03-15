@@ -37,11 +37,16 @@ export default function Login(){
         <form method="post" onSubmit={handleLoginRequest}>
             <div className="form-group">
                 <label>Username</label>
-                <input className="form-control" type="text" name="username" onChange={(e) => {setUsername(e.target.value)}} />
+                <input required className="form-control"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                type="text" name="username" 
+                onChange={(e) => {setUsername(e.target.value)}} />
             </div>
             <div className="form-group">
                 <label>Password</label>
-                <input className="form-control" type="password" name="password" onChange={(e) => {setPassword(e.target.value)}} />
+                <input required className="form-control"
+                type="password" name="password"
+                onChange={(e) => {setPassword(e.target.value)}} />
             </div>
             <button type="submit" className="btn btn-primary mb-2">Login</button>
             <p className="register-link">Not a user? <Link to="/movietime/register">Register</Link></p>

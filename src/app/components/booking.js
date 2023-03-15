@@ -16,31 +16,31 @@ export default function Booking(props){
     return (
         <div className="container">
             <div className="row justify-content-center">
-                <div className="col-4">Booking reference:</div>
-                <div className="col-4">{booking.bookingId}</div>
+                <div className="col-2 font-weight-bold">Booking reference:</div>
+                <div className="col-2">{booking.bookingId}</div>
             </div>
             <div className="row justify-content-center">
-                <div className="col-4">Booking date:</div>
-                <div className="col-4">{booking.bookingDate}</div>
+                <div className="col-2 font-weight-bold">Booking date:</div>
+                <div className="col-2">{booking.bookingDate}</div>
             </div>
             <div className="row justify-content-center">
-                <div className="col-4">Number of adult tickets:</div>
-                <div className="col-4"> {booking.adultTickets}</div>
+                <div className="col-2 font-weight-bold">Adult tickets:</div>
+                <div className="col-2"> {booking.adultTickets}</div>
             </div>
             <div className="row justify-content-center">
-                <div className="col-4">Number of child tickets:</div>
-                <div className="col-4"> {booking.childTickets}</div>
+                <div className="col-2 font-weight-bold">Child tickets:</div>
+                <div className="col-2"> {booking.childTickets}</div>
             </div>
             <div className="row justify-content-center">
-                <div className="col-4">Seats:</div>
-                <div className="col-4">
+                <div className="col-2 font-weight-bold">Seats:</div>
+                <div className="col-2">
                     {getBookedSeats(booking.seats).map((seatId) => (
                     <span className="booked-seats">{seatId}</span>
                     ))}
                 </div>
             </div>
             <div className="row justify-content-center">
-                <div className="col-8">
+                <div className="col-2">
                     <button className="btn btn-primary mb-2" onClick={cancelBooking}>Cancel booking</button>
                 </div>
             </div>

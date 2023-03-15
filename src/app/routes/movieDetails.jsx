@@ -7,10 +7,19 @@ export default function MovieDetails() {
 
     return (
         <>
-            <div className="movie-details">
-                <p><span>Director:</span><span>{movieDetails.director}</span></p>
-                <p><span>Genre:</span><span>{movieDetails.genre}</span></p>
-                <p><span>Duration:</span><span>{movieDetails.duration} minutes</span></p>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-2 font-weight-bold">Director:</div>
+                    <div className="col-2">{movieDetails.director}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-2 font-weight-bold">Genre:</div>
+                    <div className="col-2">{movieDetails.genre}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-2 font-weight-bold">Duration:</div>
+                    <div className="col-2">{movieDetails.duration}</div>
+                </div>
             </div>
             <MovieShows key={movieDetails.movieId} movieId={movieDetails.movieId} />
         </>
