@@ -53,36 +53,30 @@ export default function Booking(){
     }
 
     return (
-        <>
-            <p className={isSuccess ? 'success-message' : 'failure-message'}>
+        <form onSubmit={onBookShow}>
+            <div className="form-group">
+                <p className={isSuccess ? 'success-message' : 'failure-message'}>
                 {isSuccess && `Your booking is confirmed. Booking reference number: ${data.bookingId}`}
                 {isError && 'Sorry, unable to book your show now'}
-            </p>
-            <form onSubmit={onBookShow}>
-                <div className="form-group">
-                    <p className={isSuccess ? 'success-message' : 'failure-message'}>
-                    {isSuccess && `Your booking is confirmed. Booking reference number: ${data.bookingId}`}
-                    {isError && 'Sorry, unable to book your show now'}
-                    </p>
-                </div>
-                <div className="form-group">
-                    <label>Show date:</label>
-                    <input className="form-control" type="date" onChange={onSelectShowDate}/>
-                </div>
-                <div className="form-group">
-                    <label>Number of adult tickets:</label>
-                    <input className="form-control" min="1" type="number" onChange={(e) => setAdultTickets(e.target.value)} />
-                </div>
-                <div className="form-group">
-                    <label>Number of child tickets:</label>
-                    <input className="form-control" min="1" type="number" onChange={(e) => setChildTickets(e.target.value)} />
-                </div>
-                <div className="form-group">
-                    <label>Select seats:</label>
-                    <SeatMap showDate={selectedShowDate} movieShowId={movieShow.movieShowId} onSeatSelect={updateRequestedSeats}/>
-                </div>
-                <button type="submit" className="btn btn-primary mb-2">Book show</button>
-            </form>
-        </>
+                </p>
+            </div>
+            <div className="form-group">
+                <label>Show date:</label>
+                <input className="form-control" type="date" onChange={onSelectShowDate}/>
+            </div>
+            <div className="form-group">
+                <label>Number of adult tickets:</label>
+                <input className="form-control" min="1" type="number" onChange={(e) => setAdultTickets(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>Number of child tickets:</label>
+                <input className="form-control" min="1" type="number" onChange={(e) => setChildTickets(e.target.value)} />
+            </div>
+            <div className="form-group">
+                <label>Select seats:</label>
+                <SeatMap showDate={selectedShowDate} movieShowId={movieShow.movieShowId} onSeatSelect={updateRequestedSeats}/>
+            </div>
+            <button type="submit" className="btn btn-primary mb-2">Book show</button>
+        </form>
     )
 }
